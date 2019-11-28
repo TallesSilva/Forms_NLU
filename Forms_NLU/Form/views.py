@@ -1,22 +1,15 @@
 from django.shortcuts import render
-from django.http import HttpResponse, HttpResponseRedirect
-from django.template import loader
-from .forms import PostForm
+from .forms import ContactForm
 
 def index(request):
     if request.method == 'POST':
-        # create a form instance and populate it with data from the requests
-        # check whether it's valid:
-        form = PostForm(request.method)
+        form = ContactForm(request.POST)
         if form.is_valid():
             print(form)
-            return HttpResponseRedirect('')
-        else:
-            return HttpResponseRedirect('')
-    # if a GET (or any other method) we'll create a blank form
+            pass  # does nothing, just trigger the validation
     else:
-        form = PostForm()
-        return render(request, 'blog/post_edit.html', {'form': form})
+        form = ContactForm()
+    return render(request, 'index.html', {'form': form})
 
 
 
