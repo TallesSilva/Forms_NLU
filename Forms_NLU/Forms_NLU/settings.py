@@ -11,7 +11,7 @@ https://docs.djangoproject.com/en/2.2/ref/settings/
 """
 
 import os
-
+import mongoengine
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
@@ -72,23 +72,25 @@ TEMPLATES = [
 WSGI_APPLICATION = 'Forms_NLU.wsgi.application'
 
 
-MONGO_DATABASE_NAME = 'aia'
-MONGO_HOST = '3.19.143.236'
-MONGO_USER = 'admin'
-MONGO_PWD = 'KyrosAdmin@123'
-MONGO_PORT = 27017
-# Database
-# https://docs.djangoproject.com/en/2.2/ref/settings/#databases
-
 DATABASES = {
     'default': {
-        'ENGINE': 'djongo',
-        'NAME':MONGO_DATABASE_NAME,
-        'HOST': MONGO_HOST,
-        'USER': MONGO_USER,
-        'PASSWORD': MONGO_PWD 
+        'ENGINE': '',
     }
 }
+
+MONGO_DATABASE_NAME = 'sala'
+MONGO_HOST = '52.67.163.89'
+MONGO_USER = 'admin'
+MONGO_PWD = 'SalaKyros@123'
+MONGO_PORT = 27017
+
+mongoengine.connect(MONGO_DATABASE_NAME,
+    host=MONGO_HOST,
+    port=MONGO_PORT,
+    username=MONGO_USER,
+    password=MONGO_PWD,
+    authentication_source='admin'
+)
 
 
 # Password validation
