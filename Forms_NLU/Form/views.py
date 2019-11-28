@@ -1,7 +1,7 @@
 from django.shortcuts import render
 from .forms import ContactForm
 
-def index(request):
+def Form(request):
     if request.method == 'POST':
         form = ContactForm(request.POST)
         if form.is_valid():

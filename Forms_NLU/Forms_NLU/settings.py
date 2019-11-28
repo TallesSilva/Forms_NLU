@@ -79,10 +79,10 @@ DATABASES = {
     }
 }
 
-MONGO_DATABASE_NAME = 'sala'
-MONGO_HOST = '52.67.163.89'
+MONGO_DATABASE_NAME = 'aia'
+MONGO_HOST = '3.19.143.236'
 MONGO_USER = 'admin'
-MONGO_PWD = 'SalaKyros@123'
+MONGO_PWD = 'KyrosAdmin@123'
 MONGO_PORT = 27017
 
 mongoengine.connect(MONGO_DATABASE_NAME,
