@@ -72,13 +72,21 @@ TEMPLATES = [
 WSGI_APPLICATION = 'Forms_NLU.wsgi.application'
 
 
+MONGO_DATABASE_NAME = 'aia'
+MONGO_HOST = '3.19.143.236'
+MONGO_USER = 'admin'
+MONGO_PWD = 'KyrosAdmin@123'
+MONGO_PORT = 27017
 # Database
 # https://docs.djangoproject.com/en/2.2/ref/settings/#databases
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        'ENGINE': 'djongo',
+        'NAME':MONGO_DATABASE_NAME,
+        'HOST': MONGO_HOST,
+        'USER': MONGO_USER,
+        'PASSWORD': MONGO_PWD 
     }
 }
 
