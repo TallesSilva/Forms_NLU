@@ -74,7 +74,7 @@ WSGI_APPLICATION = 'Forms_NLU.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'djongo',
+        'ENGINE': '',
     }
 }
 
@@ -123,7 +123,7 @@ USE_I18N = True
 
 USE_L10N = True
 
-USE_TZ = Trueadmin
+USE_TZ = True
 
 
 # Static files (CSS, JavaScript, Images)
