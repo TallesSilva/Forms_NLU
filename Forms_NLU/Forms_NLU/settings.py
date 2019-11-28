@@ -25,7 +25,7 @@ SECRET_KEY = '76!&44n*#0)23j#cu@a_+c(o-k^jhh=8-pxuzz23^vpq=ejm03'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['localhost'] 
+ALLOWED_HOSTS = ['52.67.163.89', 'localhost'] 
 
 
 # Application definition
@@ -74,7 +74,7 @@ WSGI_APPLICATION = 'Forms_NLU.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': '',
+        'ENGINE': 'djongo',
     }
 }
 
@@ -123,7 +123,7 @@ USE_I18N = True
 
 USE_L10N = True
 
-USE_TZ = True
+USE_TZ = Trueadmin
 
 
 # Static files (CSS, JavaScript, Images)
