@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'crispy_forms',
+    'rest_framework',
 ]
 
 MIDDLEWARE = [
@@ -49,6 +50,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    
 ]
 
 ROOT_URLCONF = 'Forms_NLU.urls'
@@ -74,15 +76,14 @@ WSGI_APPLICATION = 'Forms_NLU.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        'ENGINE': '',
     }
 }
 
-MONGO_DATABASE_NAME = 'aia'
-MONGO_HOST = '3.19.143.236'
+MONGO_DATABASE_NAME = 'sala'
+MONGO_HOST = '52.67.163.89'
 MONGO_USER = 'admin'
-MONGO_PWD = 'KyrosAdmin@123'
+MONGO_PWD = 'SalaKyros@123'
 MONGO_PORT = 27017
 
 mongoengine.connect(MONGO_DATABASE_NAME,

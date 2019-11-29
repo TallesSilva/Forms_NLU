@@ -1,15 +1,19 @@
 from django.shortcuts import render
-from .forms import ContactForm
+from rest_framework import status, viewsets
+from rest_framework.response import Response
+from rest_framework_mongoengine import viewsets as meviewsets
+from rest_framework.decorators import action
 
-def Form(request):
-    if request.method == 'POST':
-        form = ContactForm(request.POST)
-        if form.is_valid():
-            print(form)
-            pass  # does nothing, just trigger the validation
-    else:
-        form = ContactForm()
-    return render(request, 'index.html', {'form': form})
+from .models import (
+    Form
+)
 
+from .serializers import (
+    FormSerializer
+)
 
+class FormViewSet(meviewsets.ModelViewSet):
+    lookup_field = 'id'
+    queryset = Form.objects.all()
+    serializer_class = FormSerializer
 

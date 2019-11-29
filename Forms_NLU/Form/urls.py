@@ -1,9 +1,11 @@
 from django.conf.urls import url
-from django.conf import settings
-from django.conf.urls.static import static
+from rest_framework import routers
+from rest_framework_mongoengine import routers as merouters
 
-from . import views
+from .views import *
 
-urlpatterns = [
-    url('', views.index, name='index'),
-] 
+
+merouter = merouters.DefaultRouter()
+merouter.register(r'form', FormViewSet, basename='Form')
+urlpatterns = []
+urlpatterns += merouter.urls
