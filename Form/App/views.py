@@ -29,11 +29,12 @@ def Form(request):
     return render(request, 'Form.html', {'form': form})
 
 
-class ListDataForm(ListView):
-    model = modelsForm
-    paginate_by = 10  # if pagination is desired
 
-    def get_context_data(self, **kwargs):
-        context = super().get_context_data(**kwargs)
-        context['now'] = timezone.now()
-        return context
+def List(request):
+    template = loader.get_template('List.html')
+    object_list = modelsForm.objects.all()
+    context = {
+        'object_list': object_list,
+    }
+    return HttpResponse(template.render(context, request))
+

@@ -5,4 +5,3 @@ class formsForm(forms.ModelForm):
     class Meta:
         model= modelsForm
         fields= ["Assunto", "Pergunta", "Resposta"]
-       

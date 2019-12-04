@@ -173,20 +173,39 @@
             <!-- /.app-aside -->
             <!-- .app-main -->
             <main class="app-main ">
-                    <div style="margin-right: 150px; margin-left: 150px; width: 100%;">
                       <a id="top"></a>
                       {% if object_list %}
                       <div class="row">
-                            <h1>Articles</h1>
-                            <ul>
-                            {% for objects in objects_list %}
-                                <li>{{ objects.Assunto }} - {{ objects.Pergunta}}</li>
-                            {% empty %}
-                                <li>No articles yet.</li>
-                            {% endfor %}
-                            </ul>
+                        <div class="form-check">
+                                  <!-- .table -->
+                                  <table id="dt-responsive" class="table dt-responsive nowrap w-100">
+                                    <thead>
+                                      <tr>
+                                        <th> Assunto </th>
+                                        <th> Pergunta </th>
+                                        <th> Resposta </th>
+                                      </tr>
+                                    </thead>
+                                    <tbody>
+                                        {% for customer in object_list %}
+                                        <tr role="row" class="odd">
+                                            <td class="sorting_1" tabindex="1">{{customer.Assunto}} </td>
+                                            <td>{{customer.Pergunta}}</td>
+                                            <td> {{customer.Resposta}}</td>
+                                        </tr>
+                                      {% endfor %}
+                                      
+                                    <tfoot>
+                                      <tr>
+                                          <th> Assunto </th>
+                                          <th> Pergunta </th>
+                                          <th> Resposta </th>
+                                      </tr>
+                                    </tfoot>
+                              
+                                  </table><!-- /.table -->
+                                </div><!-- /.card-body -->
                       </div>
-                    </div>
                     {% endif %}
                     </div>
                     <footer class="app-footer ">

@@ -177,13 +177,15 @@
                 <form method="post" novalidate>
                     {% csrf_token %}
                     <div class="row">
-                      <div class="col-4">
+                      <div class="col-8">
                         {{ form.Assunto|as_crispy_field }}
                       </div>
-                    </div>
-                    {{ form.Pergunta|as_crispy_field }}
-                    {{ form.Resposta|as_crispy_field }}
+                      <div class="col-8" style="width:50px;">
+                        {{ form.Pergunta|as_crispy_field }}
+                        {{ form.Resposta|as_crispy_field }}
+                      </div>
                     <button type="submit" class="btn btn-success">Save person</button>
+                  </div>
                   </form>
 
                     <footer class="app-footer ">
