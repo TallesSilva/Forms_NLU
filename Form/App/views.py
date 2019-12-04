@@ -4,6 +4,13 @@ from django.shortcuts import render
 from .forms import formsForm
 from .models import modelsForm
 from django.views.generic import ListView
+from django.utils import timezone
+
+def base(request):
+    template = loader.get_template('base.html')
+    context = {
+    }
+    return HttpResponse(template.render(context, request))
 
 
 def Form(request):
@@ -22,10 +29,11 @@ def Form(request):
     return render(request, 'Form.html', {'form': form})
 
 
-def List(request):
-    template = loader.get_template('List.html')
-    object_list = modelsForm.objects.all()
-    context = {
-        'object_list': object_list,
-    }
-    return HttpResponse(template.render(context, request))
+class ListDataForm(ListView):
+    model = modelsForm
+    paginate_by = 10  # if pagination is desired
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['now'] = timezone.now()
+        return context

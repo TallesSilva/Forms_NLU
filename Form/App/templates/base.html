@@ -1,0 +1,265 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <head>
+        <!-- Required meta tags -->
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <!-- End Required meta tags -->
+        <!-- Begin SEO tag -->
+        <title> Kyros Secretary </title>
+        <meta property="og:title" content="Dashboard">
+        <meta name="author" content="Talles Silva & Roberto ">
+        <meta property="og:locale" content="pt_BR">
+        <!-- End SEO tag -->
+        <!-- FAVICONS -->
+        <link rel="apple-touch-icon" sizes="144x144" href="{% static 'assets/apple-touch-icon.png' %}">
+        <link rel="shortcut icon" href="{% static 'assets/favicon.ico' %}">
+        <meta name="theme-color" content="#3063A0">
+        <!-- End FAVICONS -->
+        <!-- GOOGLE FONT -->
+        <link href="https://fonts.googleapis.com/css?family=Fira+Sans:400,500,600" rel="stylesheet">
+        <!-- End GOOGLE FONT -->
+        <!-- BEGIN PLUGINS STYLES -->
+        <link rel="stylesheet" href="{% static 'assets/vendor/open-iconic/css/open-iconic-bootstrap.min.css' %}">
+        <link rel="stylesheet" href="{% static 'assets/vendor/fontawesome/css/all.css' %}">
+        <link rel="stylesheet" href="{% static 'assets/vendor/flatpickr/flatpickr.min.css' %}">
+        <!-- END PLUGINS STYLES -->
+        <!-- BEGIN THEME STYLES -->
+        <link rel="stylesheet" href="{% static 'assets/stylesheets/theme.min.css' %}" data-skin="default">
+        <link rel="stylesheet" href="{% static 'assets/stylesheets/custom.css' %}">
+        <!-- Disable unused skin immediately -->
+        <script>
+            var skin = localStorage.getItem('skin') || 'default';
+            var unusedLink = document.querySelector('link[data-skin]:not([data-skin="' + skin + '"])');
+            unusedLink.setAttribute('rel', '');
+            unusedLink.setAttribute('disabled', true);
+        </script>
+        <!-- END THEME STYLES -->
+    </head>
+
+    <body class=" default-skin firefox pace-done">
+
+        <div class="pace  pace-inactive">
+            <div class="pace-progress" style="transform: translate3d(100%, 0px, 0px);" data-progress-text="100%" data-progress="99">
+                <div class="pace-progress-inner"></div>
+            </div>
+            <div class="pace-activity"></div>
+        </div>
+        <!-- .app -->
+        <div class="app">
+            <!--[if lt IE 10]>
+      <div class="page-message" role="alert">You are using an <strong>outdated</strong> browser. Please <a class="alert-link" href="http://browsehappy.com/">upgrade your browser</a> to improve your experience and security.</div>
+      <![endif]-->
+            <!-- .app-header -->
+            <header class="app-header app-header-dark">
+                <!-- .top-bar -->
+                <div class="top-bar">
+                    <!-- .top-bar-brand -->
+                    <div class="top-bar-brand">
+                        <a href="https://www.kyros.com.br/"><img src="{% static './assets/images/logo/logo-icon.png' %}" height="35px"></a>
+                    </div>
+                    <!-- /.top-bar-brand -->
+                    <!-- .top-bar-list -->
+                    <div class="top-bar-list">
+                        <!-- .top-bar-item -->
+                        <div class="top-bar-item px-2 d-md-none d-lg-none d-xl-none">
+                            <!-- toggle menu -->
+                            <button class="hamburger hamburger-squeeze" type="button" data-toggle="aside" aria-label="toggle menu"><span class="hamburger-box"><span class="hamburger-inner"></span></span></button>
+                            <!-- /toggle menu -->
+                        </div>
+                        <!-- /.top-bar-item -->
+                        <!-- .top-bar-item -->
+                        <!-- /.top-bar-item -->
+                        <!-- .top-bar-item -->
+                        <div class="top-bar-item top-bar-item-right px-0 d-none d-sm-flex">
+                            <!-- .nav -->
+                            <ul class="header-nav nav">
+                                <!-- .nav-item -->
+                                <!-- /.nav-item -->
+                                <!-- .nav-item -->
+                                <!-- /.nav-item -->
+                                <!-- .nav-item -->
+                                <!-- /.nav-item -->
+                            </ul>
+                            <!-- /.nav -->
+                            <!-- .btn-account -->
+                            <div class="dropdown d-flex">
+                                <button class="btn-account d-none d-md-flex" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><span class="user-avatar user-avatar-md"><img src="{% static './assets/images/avatars/aia_icon.png' %}" alt=""></span> <span class="account-summary pr-lg-4 d-none d-lg-block"></span></button>
+                            </div>
+                            <!-- /.btn-account -->
+                        </div>
+                        <!-- /.top-bar-item -->
+                    </div>
+                    <!-- /.top-bar-list -->
+                </div>
+                <!-- /.top-bar -->
+            </header>
+            <!-- /.app-header -->
+            <!-- .app-aside -->
+            <aside class="app-aside app-aside-expand-md app-aside-light">
+                <!-- .aside-content -->
+                <div class="aside-content">
+                    <!-- .aside-header -->
+
+                    <!-- /.aside-header -->
+                    <!-- .aside-menu -->
+                    <div class="aside-menu overflow-hidden ps">
+                        <!-- .stacked-menu -->
+                        <nav id="stacked-menu" class="stacked-menu stacked-menu-has-collapsible">
+                            <!-- .menu -->
+                            <ul class="menu">
+                                <!-- .menu-item -->
+                                <li class="menu-item has-active">
+                                    <a href="" class="menu-link"><span class="menu-icon fas fa-home"></span> <span class="menu-text">Dashboard</span></a>
+                                </li>
+                                <!-- /.menu-item -->
+                                <!-- .menu-item -->
+                                <li class="menu-item has-child">
+                                    <a href="#" class="menu-link"><span class="menu-icon far fa-file"></span> <span class="menu-text">Ações</span></a>
+                                    <!-- child menu -->
+                                    <ul class="menu">
+                                        <li class="menu-subhead">Cadastros</li>
+                                        <li class="menu-item">
+                                            <a href="Formulario" class="menu-link" tabindex="-1">Preencher Formulário</a>
+                                        </li>
+                                    </ul>
+                                    <!-- /child menu -->
+                                </li>
+
+                                <li class="menu-item has-child">
+                                    <a href="#" class="menu-link"><span class="menu-icon oi oi-wrench"></span> <span class="menu-text">Tabelas</span></a>
+                                    <!-- child menu -->
+                                    <ul class="menu">
+                                        <li class="menu-subhead">Ações</li>
+                                        <li class="menu-item ">
+                                            <a href="Lista" class=" menu-link " tabindex="-1 ">Assuntos para preencher</a>
+                                        </li>
+                                    </ul>
+                                    <!-- /child menu -->
+                                </li>
+                            </ul>
+                            <!-- /.menu -->
+                        </nav>
+                        <!-- /.stacked-menu -->
+                        <div class="ps__rail-x " style="left: 0px; bottom: 0px; ">
+                            <div class="ps__thumb-x " tabindex="0 " style="left: 0px; width: 0px; "></div>
+                        </div>
+                        <div class="ps__rail-y " style="top: 0px; right: 0px; ">
+                            <div class="ps__thumb-y " tabindex="0 " style="top: 0px; height: 0px; "></div>
+                        </div>
+                    </div>
+                    <!-- /.aside-menu -->
+                    <!-- Skin changer -->
+                    <!-- /Skin changer -->
+                </div>
+                <!-- /.aside-content -->
+            </aside>
+            <!-- /.app-aside -->
+            <!-- .app-main -->
+            <main class="app-main ">
+                    <footer class="app-footer ">
+                        <div class="copyright "> Copyright © 2019. All right reserved Kyros Tecnology. </div>
+                    </footer>
+            </main>
+            <!-- /.app-main -->
+            <div class="aside-backdrop "></div>
+            </div>
+            <!-- /.app -->
+            <!-- BEGIN BASE JS -->
+            <script src="{% static 'assets/vendor/jquery/jquery.min.js' %} "></script>
+            <script src="{% static 'assets/vendor/bootstrap/js/popper.min.js' %} "></script>
+            <script src="{% static 'assets/vendor/bootstrap/js/bootstrap.min.js' %} "></script>
+            <!-- END BASE JS -->
+            <!-- BEGIN PLUGINS JS -->
+            <script src="{% static 'assets/vendor/pace/pace.min.js' %} "></script>
+            <script src="{% static 'assets/vendor/stacked-menu/stacked-menu.min.js' %} "></script>
+            <script src="{% static 'assets/vendor/perfect-scrollbar/perfect-scrollbar.min.js' %} "></script>
+            <script src="{% static 'assets/vendor/flatpickr/flatpickr.min.js' %} "></script>
+            <script src="{% static 'assets/vendor/easy-pie-chart/jquery.easypiechart.min.js' %} "></script>
+            <script src="{% static 'assets/vendor/chart.js/Chart.min.js' %} "></script>
+            <!-- END PLUGINS JS -->
+            <!-- BEGIN THEME JS -->
+            <script src="{% static 'assets/javascript/theme.min.js' %} "></script>
+            <!-- END THEME JS -->
+            <!-- BEGIN PAGE LEVEL JS -->
+            <script src="{% static 'assets/javascript/pages/dashboard-demo.js' %} "></script>
+            <!-- END PAGE LEVEL JS -->
+            <!-- Global site tag (gtag.js) - Google Analytics -->
+            <script async src="https://www.googletagmanager.com/gtag/js?id=UA-116692175-1 "></script>
+            <script>
+                window.dataLayer = window.dataLayer || [];
+
+                function gtag() {
+                    dataLayer.push(arguments);
+                }
+                gtag('js', new Date());
+                gtag('config', 'UA-116692175-1');
+            </script>
+
+            <div class="flatpickr-calendar rangeMode animate " tabindex="-1 ">
+                <div class="flatpickr-months "><span class="flatpickr-prev-month "><svg version="1.1 " xmlns="http://www.w3.org/2000/svg " xlink="http://www.w3.org/1999/xlink " viewBox="0 0 17 17 "><g></g><path d="M5.207 8.471l7.146 7.147-0.707 0.707-7.853-7.854
+                                                7.854-7.853 0.707 0.707-7.147 7.146z "></path></svg></span>
+                    <div class="flatpickr-month ">
+                        <div class="flatpickr-current-month "><select class="flatpickr-monthDropdown-months " tabindex="-1 "><option class="flatpickr-monthDropdown-month " value="0 " tabindex="-1 ">Janeiro</option><option class="flatpickr-monthDropdown-month
+                                                " value="1 " tabindex="-1 ">Fevereiro</option><option class="flatpickr-monthDropdown-month " value="2 " tabindex="-1 ">Março</option><option class="flatpickr-monthDropdown-month " value="3 " tabindex="-1
+                                                ">Abril</option><option class="flatpickr-monthDropdown-month " value="4 " tabindex="-1 ">Maio</option><option class="flatpickr-monthDropdown-month " value="5 " tabindex="-1 ">Junho</option><option class="flatpickr-monthDropdown-month
+                                                " value="6 " tabindex="-1 ">Julho</option><option class="flatpickr-monthDropdown-month " value="7 " tabindex="-1 ">Agosto</option><option class="flatpickr-monthDropdown-month " value="8 " tabindex="-1
+                                                ">Setembro</option><option class="flatpickr-monthDropdown-month " value="9 " tabindex="-1 " selected="selected ">Outubro</option><option class="flatpickr-monthDropdown-month " value="10 " tabindex="-1 ">Novembro</option><option class="flatpickr-monthDropdown-month
+                                                " value="11 " tabindex="-1 ">Dezembro</option></select>
+                            <div class="numInputWrapper "><input class="numInput cur-year " type="number " tabindex="-1 " aria-label="Year " value="2019 "><span class="arrowUp "></span><span class="arrowDown "></span></div>
+                        </div>
+                    </div><span class="flatpickr-next-month "><svg version="1.1 " xmlns="http://www.w3.org/2000/svg " xlink="http://www.w3.org/1999/xlink " viewBox="0 0 17 17 "><g></g><path d="M13.207 8.472l-7.854 7.854-0.707-0.707 7.146-7.146-7.146-7.148 0.707-0.707
+                                                7.854 7.854z "></path></svg></span></div>
+                <div class="flatpickr-innerContainer ">
+                    <div class="flatpickr-rContainer ">
+                        <div class="flatpickr-weekdays ">
+                            <div class="flatpickr-weekdaycontainer ">
+                                <span class="flatpickr-weekday ">
+        Dom</span><span class="flatpickr-weekday ">Seg</span><span class="flatpickr-weekday ">Ter</span><span class="flatpickr-weekday ">Qua</span><span class="flatpickr-weekday ">Qui</span><span class="flatpickr-weekday ">Sex</span>
+                                <span class="flatpickr-weekday ">Sab
+                        </span>
+                            </div>
+                        </div>
+                        <div class="flatpickr-days " tabindex="-1 ">
+                            <div class="dayContainer "><span class="flatpickr-day prevMonthDay " aria-label="September 29, 2019 " tabindex="-1 ">29</span><span class="flatpickr-day prevMonthDay " aria-label="September 30, 2019 " tabindex="-1
+                                                ">30</span><span class="flatpickr-day " aria-label="October 1, 2019 " tabindex="-1 ">1</span><span class="flatpickr-day " aria-label="October 2, 2019 " tabindex="-1 ">2</span><span class="flatpickr-day today "
+                                    aria-label="October 3, 2019 " aria-current="date " tabindex="-1
+                                                ">3</span><span class="flatpickr-day " aria-label="October 4, 2019 " tabindex="-1 ">4</span><span class="flatpickr-day " aria-label="October 5, 2019 " tabindex="-1 ">5</span><span class="flatpickr-day "
+                                    aria-label="October 6, 2019 " tabindex="-1
+                                                ">6</span><span class="flatpickr-day " aria-label="October 7, 2019 " tabindex="-1 ">7</span><span class="flatpickr-day " aria-label="October 8, 2019 " tabindex="-1 ">8</span><span class="flatpickr-day "
+                                    aria-label="October 9, 2019 " tabindex="-1
+                                                ">9</span><span class="flatpickr-day " aria-label="October 10, 2019 " tabindex="-1 ">10</span><span class="flatpickr-day " aria-label="October 11, 2019 " tabindex="-1 ">11</span><span class="flatpickr-day "
+                                    aria-label="October 12, 2019 " tabindex="-1
+                                                ">12</span><span class="flatpickr-day " aria-label="October 13, 2019 " tabindex="-1 ">13</span><span class="flatpickr-day " aria-label="October 14, 2019 " tabindex="-1 ">14</span><span class="flatpickr-day "
+                                    aria-label="October 15, 2019 " tabindex="-1
+                                                ">15</span><span class="flatpickr-day " aria-label="October 16, 2019 " tabindex="-1 ">16</span><span class="flatpickr-day " aria-label="October 17, 2019 " tabindex="-1 ">17</span><span class="flatpickr-day "
+                                    aria-label="October 18, 2019 " tabindex="-1
+                                                ">18</span><span class="flatpickr-day " aria-label="October 19, 2019 " tabindex="-1 ">19</span><span class="flatpickr-day " aria-label="October 20, 2019 " tabindex="-1 ">20</span><span class="flatpickr-day "
+                                    aria-label="October 21, 2019 " tabindex="-1
+                                                ">21</span><span class="flatpickr-day " aria-label="October 22, 2019 " tabindex="-1 ">22</span><span class="flatpickr-day " aria-label="October 23, 2019 " tabindex="-1 ">23</span><span class="flatpickr-day "
+                                    aria-label="October 24, 2019 " tabindex="-1
+                                                ">24</span><span class="flatpickr-day " aria-label="October 25, 2019 " tabindex="-1 ">25</span><span class="flatpickr-day " aria-label="October 26, 2019 " tabindex="-1 ">26</span><span class="flatpickr-day "
+                                    aria-label="October 27, 2019 " tabindex="-1
+                                                ">27</span><span class="flatpickr-day " aria-label="October 28, 2019 " tabindex="-1 ">28</span><span class="flatpickr-day " aria-label="October 29, 2019 " tabindex="-1 ">29</span><span class="flatpickr-day "
+                                    aria-label="October 30, 2019 " tabindex="-1
+                                                ">30</span><span class="flatpickr-day " aria-label="October 31, 2019 " tabindex="-1 ">31</span><span class="flatpickr-day nextMonthDay " aria-label="November 1, 2019 " tabindex="-1 ">1</span><span class="flatpickr-day nextMonthDay "
+                                    aria-label="November 2, 2019
+                                                " tabindex="-1 ">2</span>
+                                <span class="flatpickr-day nextMonthDay " aria-label="November 3, 2019 " tabindex="-1 ">3</span><span class="flatpickr-day nextMonthDay " aria-label="November 4, 2019 " tabindex="-1 ">4</span><span class="flatpickr-day nextMonthDay "
+                                    aria-label="November 5, 2019 " tabindex="-1 ">5</span><span class="flatpickr-day nextMonthDay " aria-label="November 6, 2019 " tabindex="-1 ">6</span><span class="flatpickr-day nextMonthDay " aria-label="November 7, 2019
+                                                " tabindex="-1 ">7</span>
+                                <span class="flatpickr-day nextMonthDay " aria-label="November 8, 2019 " tabindex="-1 ">8</span>
+                                <span class="flatpickr-day nextMonthDay " aria-label="November 9, 2019 " tabindex="-1 ">9</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+    </body>
+
+</html>
