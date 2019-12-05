@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load crispy_forms_tags %}
+
+
+{% block content %}
+<form method="post" novalidate>
+{% csrf_token %}
+    <div class="col-8">
+        {{ form.Assunto|as_crispy_field }}
+    </div>
+    <div class="col-8">
+        {{ form.Pergunta|as_crispy_field }}
+        {{ form.Resposta|as_crispy_field }}
+    </div>
+    <div style="margin-left:1rem">
+        <button type="submit" class="btn btn-success">Salvar</button>
+    </div>
+</form>
+{% endblock %}

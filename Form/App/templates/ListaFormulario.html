@@ -1,0 +1,42 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<main class="app-main ">
+    <a id="top"></a>
+    {% if object_list %}
+    <div class="row">
+        <div class="form-check">
+            <!-- .table -->
+            <table id="dt-responsive" class="table dt-responsive nowrap w-100">
+                <thead>
+                <tr>
+                    <th> Assunto </th>
+                    <th> Pergunta </th>
+                    <th> Resposta </th>
+                </tr>
+                </thead>
+                <tbody>
+                    {% for customer in object_list %}
+                    <tr role="row" class="odd">
+                        <td class="sorting_1" tabindex="1">{{customer.Assunto}} </td>
+                        <td>{{customer.Pergunta}}</td>
+                        <td> {{customer.Resposta}}</td>
+                    </tr>
+                    {% endfor %}
+                
+                <tfoot>
+                <tr>
+                    <th> Assunto </th>
+                    <th> Pergunta </th>
+                    <th> Resposta </th>
+                </tr>
+                </tfoot>
+        
+            </table><!-- /.table -->
+        </div><!-- /.card-body -->
+    </div>
+    {% endif %}
+
+</main>
+
+{% endblock %}

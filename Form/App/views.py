@@ -26,12 +26,12 @@ def Form(request):
             return HttpResponseRedirect('')
     else:
         form = Formulario()
-    return render(request, 'Form.html', {'form': form})
+    return render(request, 'Formulario.html', {'form': form})
 
 
 
 def List(request):
-    template = loader.get_template('List.html')
+    template = loader.get_template('ListaFormulario.html')
     object_list = ModeloFormulario.objects.all()
     context = {
         'object_list': object_list,
