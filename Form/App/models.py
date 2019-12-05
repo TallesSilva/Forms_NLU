@@ -1,17 +1,17 @@
 from django.db import models
 
-USA = 'usa'
-FRANCE = 'france'
-CHINA = 'china'
-GERMANY = 'germany'
-SPAIN = 'spain'
+FAQKYROS = 'INFORMAÇÃO DA EMPRESA'
+FAQCONTATO = 'IMFORMAÇÃO DE CONTATO'
+FAQLOCAL = 'INFORMAÇÃO DO LOCAL'
+FAQPRODUTOS = 'INFORMAÇÃO DO PRODUTO'
+CHITCHAT = 'COMUNICAÇÃO FORA DE CONTEXTO'
 
 TOPICS = (
-    (USA, 'USA'),
-    (FRANCE, 'France'),
-    (CHINA, 'China'),
-    (GERMANY, 'Germany'),
-    (SPAIN, 'Spain'),
+    (FAQKYROS, 'INFORMAÇÃO DA EMPRESA'),
+    (FAQCONTATO, 'IMFORMAÇÃO DE CONTATO'),
+    (FAQLOCAL, 'INFORMAÇÃO DO LOCAL'),
+    (FAQPRODUTOS, 'INFORMAÇÃO DO PRODUTO'),
+    (CHITCHAT, 'COMUNICAÇÃO FORA DE CONTEXTO'),
         )
 
 class ModeloFormulario(models.Model):
