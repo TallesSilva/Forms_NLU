@@ -2,8 +2,8 @@
 
 {% block content %}
     {% if object_list %}
-    <div class="row">
-        <div class="form-check">
+    <div class="row" style="border: none; box-shadow: 0 0 0 1px rgba(20, 20, 31, .05), 0 1px 3px 0 rgba(20, 20, 31, .15); margin:20px; background:white" >
+        <div class="form-check"  >
             <!-- .table -->
             <table id="dt-responsive" class="table dt-responsive nowrap w-100">
                 <thead>
@@ -14,11 +14,11 @@
                 </tr>
                 </thead>
                 <tbody>
-                    {% for customer in object_list %}
+                    {% for object in object_list %}
                     <tr role="row" class="odd">
-                        <td class="sorting_1" tabindex="1">{{customer.Assunto}} </td>
-                        <td>{{customer.Pergunta}}</td>
-                        <td> {{customer.Resposta}}</td>
+                        <td class="sorting_1" tabindex="1">{{object.Assunto}} </td>
+                        <td>{{object.Pergunta}}</td>
+                        <td> {{object.Resposta}}</td>
                     </tr>
                     {% endfor %}
                 

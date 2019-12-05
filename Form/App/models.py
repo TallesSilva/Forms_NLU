@@ -27,4 +27,4 @@ class ModeloFormulario(models.Model):
                 resposta=self.Resposta
             )
         return "Objeto vazio"
-    
+
