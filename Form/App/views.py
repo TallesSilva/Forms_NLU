@@ -29,6 +29,14 @@ def Form(request):
     return render(request, 'Formulario.html', {'form': form})
 
 
+def Import(request):
+    template = loader.get_template('ListaFormulario.html')
+    object_list = ModeloFormulario.objects.all()
+    context = {
+        'object_list': object_list,
+    }
+    return HttpResponse(template.render(context, request))
+
 
 def List(request):
     template = loader.get_template('ListaFormulario.html')

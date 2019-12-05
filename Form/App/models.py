@@ -1,8 +1,21 @@
 from django.db import models
 
+USA = 'usa'
+FRANCE = 'france'
+CHINA = 'china'
+GERMANY = 'germany'
+SPAIN = 'spain'
+
+TOPICS = (
+    (USA, 'USA'),
+    (FRANCE, 'France'),
+    (CHINA, 'China'),
+    (GERMANY, 'Germany'),
+    (SPAIN, 'Spain'),
+        )
 
 class ModeloFormulario(models.Model):
-    Assunto = models.CharField(max_length=50)
+    Assunto = models.CharField(choices=TOPICS, max_length=50)
     Pergunta = models.TextField(max_length=1000)
     Resposta = models.TextField(max_length=1000)
 
@@ -14,3 +27,4 @@ class ModeloFormulario(models.Model):
                 resposta=self.Resposta
             )
         return "Objeto vazio"
+    
