@@ -1,7 +1,7 @@
 from django import forms
-from .models import modelsForm
+from .models import ModeloFormulario
 
-class formsForm(forms.ModelForm):
+class Formulario(forms.ModelForm):
     class Meta:
-        model= modelsForm
+        model= ModeloFormulario
         fields= ["Assunto", "Pergunta", "Resposta"]

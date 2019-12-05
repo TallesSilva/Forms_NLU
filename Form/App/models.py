@@ -1,7 +1,7 @@
 from django.db import models
 
 
-class modelsForm(models.Model):
+class ModeloFormulario(models.Model):
     Assunto = models.CharField(max_length=50)
     Pergunta = models.TextField(max_length=1000)
     Resposta = models.TextField(max_length=1000)
