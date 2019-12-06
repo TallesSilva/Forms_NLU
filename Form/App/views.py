@@ -22,20 +22,10 @@ def Form(request):
                 Pergunta=form.cleaned_data['Pergunta'],
                 Resposta=form.cleaned_data['Resposta']
             ).save()
-            print(ModeloFormulario.objects.all().first())
             return HttpResponseRedirect('')
     else:
         form = Formulario()
     return render(request, 'Formulario.html', {'form': form})
-
-
-def Import(request):
-    template = loader.get_template('ListaFormulario.html')
-    object_list = ModeloFormulario.objects.all()
-    context = {
-        'object_list': object_list,
-    }
-    return HttpResponse(template.render(context, request))
 
 
 def List(request):
@@ -43,12 +33,20 @@ def List(request):
     object_list = ModeloFormulario.objects.all()
     context = {
         'object_list': object_list,
-    }
+    }    
+    if(request.GET.get('btn_export')):
+        print('aaaaaaaaaaaaaa')
     return HttpResponse(template.render(context, request))
 
 
 def Ajuda(request):
     template = loader.get_template('Ajuda.html')
+    context = {
+    }
+    return HttpResponse(template.render(context, request))
+
+def teste(request):
+    template = loader.get_template('teste.html')
     context = {
     }
     return HttpResponse(template.render(context, request))

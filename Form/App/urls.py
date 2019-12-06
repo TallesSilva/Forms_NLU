@@ -9,4 +9,5 @@ urlpatterns = [
     path('Formulario/', views.Form, name='Formulario'),
     path('Lista/', views.List, name='Lista'),
     path('Ajuda/', views.Ajuda, name='Ajuda'),
+    path('teste/', views.teste, name='teste'),
 ]
