@@ -15,10 +15,10 @@ TOPICS = (
         )
 
 class ModeloFormulario(models.Model):
-    Checkbox = models.NullBooleanField(default=None)
+    Checkbox = models.NullBooleanField(default=False)
     Assunto = models.CharField(choices=TOPICS, max_length=50)
-    Pergunta = models.TextField(max_length=1000)
-    Resposta = models.TextField(max_length=1000)
+    Pergunta = models.TextField(blank=True, max_length=1000)
+    Resposta = models.TextField(blank=True, max_length=1000)
 
     def __str__(self):
         if self.Assunto and self.Pergunta and self.Resposta:

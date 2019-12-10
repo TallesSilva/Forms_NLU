@@ -16,14 +16,16 @@ def base(request):
 def Form(request):
     if request.method == 'POST':
         form = Formulario(request.POST)
+        print(form)
         if form.is_valid():
             ModeloFormulario(
+                Checkbox=form.cleaned_data['Checkbox'],
                 Assunto=form.cleaned_data['Assunto'],
                 Pergunta=form.cleaned_data['Pergunta'],
                 Resposta=form.cleaned_data['Resposta']
             ).save()
             return HttpResponseRedirect('')
-    else:
+    else:    
         form = Formulario()
     return render(request, 'Formulario.html', {'form': form})
 
@@ -33,9 +35,18 @@ def List(request):
     object_list = ModeloFormulario.objects.all()
     context = {
         'object_list': object_list,
-    }    
-    if(request.GET.get('btn_export')):
-        print('aaaaaaaaaaaaaa')
+    }
+    if request.POST.get('Remove'):
+        form = Formulario(request.POST)
+        print(form)
+        if form.is_valid():
+            ModeloFormulario(
+                Checkbox=form.cleaned_data['Checkbox'],
+                Assunto=form.cleaned_data['Assunto'],
+                Pergunta=form.cleaned_data['Pergunta'],
+                Resposta=form.cleaned_data['Resposta']
+            ).save()
+            print('entrou')
     return HttpResponse(template.render(context, request))
 
 
@@ -50,4 +61,3 @@ def teste(request):
     context = {
     }
     return HttpResponse(template.render(context, request))
-
