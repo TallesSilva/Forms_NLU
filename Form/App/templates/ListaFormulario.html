@@ -23,10 +23,10 @@
                 <tbody>
                     {% for object in object_list %}
                     <tr role="row" class="odd">
-                        <th class="bs-checkbox " style="width: 36px; " data-field="Checkbox"><div class="th-inner "><label></label><input name="btSelectAll" type="checkbox"><span></span></label></div><div class="fht-cell" style="width: 40px;"></div></th>
+                        <th class="bs-checkbox " style="width: 36px; " data-field="Checkbox"><div class="th-inner "><label></label><input name="formularios" type="checkbox" id="option{{object.id}}" value={{object.id}}><span></span></label></div><div class="fht-cell" style="width: 40px;"></div></th>
                         <td data-field="Assunto" class="sorting_1" tabindex="1">{{object.Assunto}} </td>
                         <td data-field="Pergunta">{{object.Pergunta}}</td>
-                        <td data-field="Pergunta">{{object.Pergunta}}</td>
+                        <td data-field="Pergunta">{{object.Resposta}}</td>
                         <td data-field="Check"> {{object.Checkbox}}</td>
                     </tr>
                     {% endfor %}
@@ -48,6 +48,7 @@
         </div>
         <div style="margin-left:2rem">
             <button type="submit" class="btn btn-success" method="post" value="Click" name='Remove'>Remover</button>
+            <button type="submit" class="btn btn-success" method="post" value="Click" name='Criar'>Salvar</button>
         </div>
     </form>
     {% endif %}
