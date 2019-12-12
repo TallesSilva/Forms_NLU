@@ -5,7 +5,7 @@ from django.forms import ModelForm, Textarea
 class Formulario(forms.ModelForm):
     class Meta:
         model= ModeloFormulario
-        fields= ["Checkbox", "Assunto", "Pergunta", "Resposta"]
+        fields= ["Assunto", "Pergunta", "Resposta"]
         widgets = {
             'Pergunta': Textarea(attrs={'cols': 10, 'rows': 4}),
             'Resposta': Textarea(attrs={'cols': 10, 'rows': 4}),

@@ -27,7 +27,6 @@ TOPICS = (
         )
 
 class ModeloFormulario(models.Model):
-    Checkbox = models.NullBooleanField(default=False)
     Assunto = models.CharField(choices=TOPICS, max_length=50)
     Pergunta = models.TextField(blank=True, max_length=1000)
     Resposta = models.TextField(blank=True, max_length=1000)
@@ -35,7 +34,6 @@ class ModeloFormulario(models.Model):
     def __str__(self):
         if self.Assunto and self.Pergunta and self.Resposta:
             return "{assunto}: '{pergunta}'? '{resposta}'".format(
-                checkbox=self.Checkbox,
                 assunto=self.Assunto,
                 pergunta=self.Pergunta,
                 resposta=self.Resposta
