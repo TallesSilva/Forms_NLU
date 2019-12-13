@@ -45,7 +45,8 @@ def List(request):
             NLU = open("Rasa/NLU.md", 'a')
             NLU.write('\n')
             NLU.write('## intent: {}\n' .format(objects.Assunto))
-            NLU.write('- {}\n' .format(objects.Pergunta))
+            for item in objects.Pergunta.split("\n"):
+                NLU.write('- {}' .format(item))
     object_list = ModeloFormulario.objects.all()
     context = {
         'object_list': object_list,
