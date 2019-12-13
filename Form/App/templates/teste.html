@@ -1,41 +1,61 @@
-<link href="https://unpkg.com/bootstrap-table@1.15.5/dist/bootstrap-table.min.css" rel="stylesheet">
+{% extends 'base.html' %}
+{% load static %}
+{% load crispy_forms_tags %}
 
-<script src="https://unpkg.com/bootstrap-table@1.15.5/dist/bootstrap-table.min.js"></script>
 
-<div id="toolbar">
-  <button id="button" class="btn btn-secondary">remove</button>
-</div>
-<table
-  id="table"
-  data-toggle="table"
-  data-toolbar="#toolbar"
-  data-height="428"
-  data-url="json/data1.json">
-  <thead>
-    {% for object in object_list %}
-    <tr>
-      <th data-field="state" data-checkbox="true"></th>
-      <th data-field="id">ID</th>
-      <th data-field="name">Item Name</th>
-      <th data-field="price">Item Price</th>
-    </tr>
-    {% endfor %
-  </thead>
-</table>
-
-<script>
-  var $table = $('#table')
-  var $button = $('#button')
-
-  $(function() {
-    $button.click(function () {
-      var ids = $.map($table.bootstrapTable('getSelections'), function (row) {
-        return row.id
-      })
-      $table.bootstrapTable('remove', {
-        field: 'id',
-        values: ids
-      })
-    })
-  })
-</script>
+{% block content %}
+<form method="post" novalidate>
+{% csrf_token %}
+<div class="page">
+  <div class="page-inner">
+    <header class="page-title-bar">
+      <h1 class="page-title"> Importar Conversa </h1>
+      {% if status_import == 'Success' %}
+      <div class="section-block">
+        <div class="alert alert-success has-icon alert-dismissible fade show">
+          <button type="button" class="close" data-dismiss="alert">×</button>
+          <div class="alert-icon">
+            <span class="oi oi-flag"></span>
+          </div>
+          <h4 class="alert-heading"> Sucesso! </h4>
+          <p class="mb-0"> Backlog importado com sucesso. </p>
+        </div>
+      </div>
+      {% elif status_import == 'Error' %}
+      <div class="section-block">
+        <div class="alert alert-danger has-icon alert-dismissible fade show">
+          <button type="button" class="close" data-dismiss="alert">×</button>
+          <div class="alert-icon">
+            <span class="oi oi-flag"></span>
+          </div>
+          <h4 class="alert-heading"> Erro! </h4>
+          <p class="mb-0"> Backlog importado com erro. Tente novamente. </p>
+        </div>
+      </div>  
+      {% endif %}
+    </header>
+    <script>
+        function loading() {
+            document.getElementById("loading_button").style.visibility = "visible";
+        }
+    </script>
+    <div class="card card-fluid">
+        <form action="{% url "teste" %}" method="post" enctype="multipart/form-data" onsubmit="loading()">
+            {% csrf_token %}
+          <fieldset class="card-body">
+            <div class="form-group">
+              <label class="control-label" for="tf3">Arquivo</label>
+              <div class="custom-file">
+                <input type="file" title="Upload excel file" name="excel_file" id="flatpickr07" class="custom-file-input" required="required"> <label class="custom-file-label" for="tf3">Escolha um arquivo excel</label>
+              </div>
+            </div>
+            <div class="ml-auto">                         
+              <button type="submit" class="btn btn-success">Importar</button>
+              <button id="loading_button" style="visibility:hidden;" class="btn btn-primary" type="button" disabled=""><span class="spinner-grow spinner-grow-sm" role="status" aria-hidden="true"></span> Carregando...</button>
+            </div>
+          </fieldset>
+        </form>
+    </div> 
+  </div>
+</div>>
+{% endblock %}

@@ -5,7 +5,7 @@ from .forms import Formulario
 from .models import ModeloFormulario
 from django.views.generic import ListView
 from django.utils import timezone
-
+import openpyxl
 
 def base(request):
     template = loader.get_template('Dashboard.html')
@@ -58,6 +58,28 @@ def Ajuda(request):
     template = loader.get_template('Ajuda.html')
     context = {
     }
+    return HttpResponse(template.render(context, request))
+
+def Importar(request):
+    try:
+        template = loader.get_template('Importar.html')
+        context = {
+        }
+        if request.method == 'POST':
+            excel_file = request.FILES["excel_file"]
+            wb = openpyxl.load_workbook(excel_file)
+            ws = wb.active
+            return HttpResponse(template.render(context, request))
+        elif request.method == "GET":
+            return HttpResponse(template.render(context, request))
+    except:
+        template = loader.get_template('Importar.html')
+        context = {
+        }
+        return HttpResponse(template.render(context, request))
+    #ncell = ws.cell(nrow, ncolumn).value
+    
+
     return HttpResponse(template.render(context, request))
 
 def teste(request):
