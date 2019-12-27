@@ -27,9 +27,9 @@ TOPICS = (
         )
 
 class ModeloFormulario(models.Model):
-    Assunto = models.CharField(choices=TOPICS, max_length=50)
-    Pergunta = models.TextField(blank=True, max_length=1000)
-    Resposta = models.TextField(blank=True, max_length=1000)
+    Assunto = models.CharField(choices=TOPICS, max_length=20)
+    Pergunta = models.CharField(blank=True, max_length=50)
+    Resposta = models.CharField(blank=True, max_length=50)
 
     def __str__(self):
         if self.Assunto and self.Pergunta and self.Resposta:

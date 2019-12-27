@@ -27,7 +27,8 @@ def Form(request):
             return HttpResponseRedirect('')
     else:    
         form = Formulario()
-    return render(request, 'Formulario.html', {'form': form})
+        object_list = ModeloFormulario.objects.all()
+    return render(request, 'Formulario.html', {'form': form, 'object_list': object_list})
 
 
 def List(request):
@@ -63,7 +64,6 @@ def List(request):
         }
         return HttpResponse(template.render(context, request))
     except:
-
         template = loader.get_template('Dashboard.html')
         return HttpResponseRedirect(template.render(context, request))
 
