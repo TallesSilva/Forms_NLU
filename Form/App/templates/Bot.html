@@ -5,8 +5,8 @@
 
 
 {% block content %}
-    {% if object_list %}
-    <form action="{% url "Lista" %}" method="post" enctype="multipart/form-data" onsubmit="loading()">
+    {% comment %}{% if object_list %}
+     <form action="{% url "Lista" %}" method="post" enctype="multipart/form-data" onsubmit="loading()">
         <div class="row" style="border: none; box-shadow: 0 0 0 1px rgba(20, 20, 31, .05), 0 1px 3px 0 rgba(20, 20, 31, .15); margin:20px; background:white" >
             <div class="form-check"  >
             <!-- .table -->
@@ -49,24 +49,36 @@
             <button type="submit" class="btn btn-success" method="post" value="Click" name='Remove'>Remover</button>
             <button type="submit" class="btn btn-success" method="post" value="Click" name='Criar'>Salvar</button>
         </div>
-    </form>
+    </form> 
+
     {% endif %}
+   
 
-<!---
-    <div style="margin-left:2rem">
-        <button id='r_table' type="submit" class="btn btn-success" method="post" value="Click" name='Remove'>Remover</button>
-    </div>
--->    
-
-<script>
+ <script>
   var $button = $('#r_table')
 
     $button.click(function () {
       alert('alo')
     })
 
-</script>
+</script> {% endcomment %}
+<h1> Chat </h1>
+<div id="webchat"/>
+<script src="https://storage.googleapis.com/mrbot-cdn/webchat-latest.js"></script>
 
+<script>
+  WebChat.default.init({
+    selector: "#webchat",
+    customData: {"language": "en"}, // arbitrary custom data. Stay minimal as this will be added to the socket
+    socketUrl: "http://localhost:5005",
+    socketPath: "/socket.io/",
+    docViewer: true,
+    storage: "session",
+    showMessageDate: true,
+    title: "Kyros Bot",
+    subtitle: "FAQ",
+  })
+</script>
 </main>
 
 {% endblock %}

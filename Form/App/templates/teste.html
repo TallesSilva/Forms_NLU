@@ -4,58 +4,18 @@
 
 
 {% block content %}
-<form method="post" novalidate>
-{% csrf_token %}
-<div class="page">
-  <div class="page-inner">
-    <header class="page-title-bar">
-      <h1 class="page-title"> Importar Conversa </h1>
-      {% if status_import == 'Success' %}
-      <div class="section-block">
-        <div class="alert alert-success has-icon alert-dismissible fade show">
-          <button type="button" class="close" data-dismiss="alert">×</button>
-          <div class="alert-icon">
-            <span class="oi oi-flag"></span>
-          </div>
-          <h4 class="alert-heading"> Sucesso! </h4>
-          <p class="mb-0"> Backlog importado com sucesso. </p>
-        </div>
-      </div>
-      {% elif status_import == 'Error' %}
-      <div class="section-block">
-        <div class="alert alert-danger has-icon alert-dismissible fade show">
-          <button type="button" class="close" data-dismiss="alert">×</button>
-          <div class="alert-icon">
-            <span class="oi oi-flag"></span>
-          </div>
-          <h4 class="alert-heading"> Erro! </h4>
-          <p class="mb-0"> Backlog importado com erro. Tente novamente. </p>
-        </div>
-      </div>  
-      {% endif %}
-    </header>
-    <script>
-        function loading() {
-            document.getElementById("loading_button").style.visibility = "visible";
-        }
-    </script>
-    <div class="card card-fluid">
-        <form action="{% url "teste" %}" method="post" enctype="multipart/form-data" onsubmit="loading()">
-            {% csrf_token %}
-          <fieldset class="card-body">
-            <div class="form-group">
-              <label class="control-label" for="tf3">Arquivo</label>
-              <div class="custom-file">
-                <input type="file" title="Upload excel file" name="excel_file" id="flatpickr07" class="custom-file-input" required="required"> <label class="custom-file-label" for="tf3">Escolha um arquivo excel</label>
-              </div>
-            </div>
-            <div class="ml-auto">                         
-              <button type="submit" class="btn btn-success">Importar</button>
-              <button id="loading_button" style="visibility:hidden;" class="btn btn-primary" type="button" disabled=""><span class="spinner-grow spinner-grow-sm" role="status" aria-hidden="true"></span> Carregando...</button>
-            </div>
-          </fieldset>
-        </form>
-    </div> 
-  </div>
-</div>>
+{% comment %} <h1> Chat </h1>
+<div id="webchat"/>
+<script src="https://storage.googleapis.com/mrbot-cdn/webchat-latest.js"></script>
+
+<script>
+  WebChat.default.init({
+    selector: "#webchat",
+    customData: {"language": "en"}, // arbitrary custom data. Stay minimal as this will be added to the socket
+    socketUrl: "http://localhost:5005",
+    socketPath: "/socket.io/",
+    title: "Faq Bot",
+    subtitle: "Teste",
+  })
+</script> {% endcomment %}
 {% endblock %}

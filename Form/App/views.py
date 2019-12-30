@@ -14,7 +14,7 @@ def base(request):
     return HttpResponse(template.render(context, request))
 
 
-def Form(request):
+def Formulario(request):
     if request.method == 'POST':
         form = Formulario(request.POST)
         print(form)
@@ -31,36 +31,38 @@ def Form(request):
     return render(request, 'Formulario.html', {'form': form, 'object_list': object_list})
 
 
-def List(request):
+def Lista(request):
     try:
-        template = loader.get_template('ListaFormulario.html')
-        NLU = open("Rasa/nlu.md", 'w')
-        NLU.write('\n')
-        Resposes = open("Rasa/responses.md", 'w')
-        Resposes.write('\n')
-        if request.POST.get('Remove'):
-            formularios = request.POST.getlist('formularios')
-            for formulario in formularios:
-                ModeloFormulario.objects.filter(id=formulario).delete()
-        elif request.POST.get('Criar'):
-            formularios = request.POST.getlist('formularios')
-            for formulario in formularios:
-                objects = ModeloFormulario.objects.get(id=formulario)
-                NLU = open("Rasa/nlu.md", 'a')
-                NLU.write('\n')
-                NLU.write('## intent: {}\n' .format(objects.Assunto))
-                for item in objects.Pergunta.split("\n"):
-                    NLU.write('- {}' .format(item))
-            for formulario in formularios:
-                objects = ModeloFormulario.objects.get(id=formulario)
-                Resposes = open("Rasa/responses.md", 'a')
-                Resposes.write('\n')
-                Resposes.write('## {}\n' .format(objects.Assunto))
-                Resposes.write('* {}\n' .format(objects.Assunto))
-                Resposes.write(' - {}\n' .format(objects.Resposta))
-        object_list = ModeloFormulario.objects.all()
+        template = loader.get_template('Bot.html')
+        # NLU = open("Rasa/nlu.md", 'w')
+        # NLU.write('\n')
+        # Resposes = open("Rasa/responses.md", 'w')
+        # Resposes.write('\n')
+        # if request.POST.get('Remove'):
+        #     formularios = request.POST.getlist('formularios')
+        #     for formulario in formularios:
+        #         ModeloFormulario.objects.filter(id=formulario).delete()
+        # elif request.POST.get('Criar'):
+        #     formularios = request.POST.getlist('formularios')
+        #     for formulario in formularios:
+        #         objects = ModeloFormulario.objects.get(id=formulario)
+        #         NLU = open("Rasa/nlu.md", 'a')
+        #         NLU.write('\n')
+        #         NLU.write('## intent: {}\n' .format(objects.Assunto))
+        #         for item in objects.Pergunta.split("\n"):
+        #             NLU.write('- {}' .format(item))
+        #     for formulario in formularios:
+        #         objects = ModeloFormulario.objects.get(id=formulario)
+        #         Resposes = open("Rasa/responses.md", 'a')
+        #         Resposes.write('\n')
+        #         Resposes.write('## {}\n' .format(objects.Assunto))
+        #         Resposes.write('* {}\n' .format(objects.Assunto))
+        #         Resposes.write(' - {}\n' .format(objects.Resposta))
+        # object_list = ModeloFormulario.objects.all()
+        # context = {
+        #     'object_list': object_list,
+        # }
         context = {
-            'object_list': object_list,
         }
         return HttpResponse(template.render(context, request))
     except:
