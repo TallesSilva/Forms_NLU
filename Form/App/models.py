@@ -26,7 +26,7 @@ TOPICS = (
     (ask_faqkyros_email, 'INFORMA EMAIL'),
         )
 
-class ModeloFormulario(models.Model):
+class ModelFormulario(models.Model):
     Assunto = models.CharField(choices=TOPICS, max_length=20)
     Pergunta = models.CharField(blank=True, max_length=50)
     Resposta = models.CharField(blank=True, max_length=50)

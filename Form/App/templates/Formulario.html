@@ -4,7 +4,8 @@
 
 
 {% block content %}
-<form method="post" novalidate>
+
+<form method="POST" novalidate>
 {% csrf_token %}
     <div class="col-4">
         {{ form.Assunto|as_crispy_field }}
@@ -22,50 +23,4 @@
     </div>
 </form>
 
-{% if object_list %}
-<form action="{% url "Lista" %}" method="post" enctype="multipart/form-data" onsubmit="loading()">
-    <div class="row" style="border: none; box-shadow: 0 0 0 1px rgba(20, 20, 31, .05), 0 1px 3px 0 rgba(20, 20, 31, .15); margin:20px; background:white" >
-        <div class="form-check"  >
-        <!-- .table -->
-            {% csrf_token %}
-        <table id="form_table" class="table dt-responsive nowrap w-100">
-            <thead>
-            <tr>
-                <th> Selecionar </th>
-                <th> Assunto </th>
-                <th> Pergunta </th>
-                <th> Resposta </th>
-            </tr>
-            </thead>
-            <tbody>
-                {% for object in object_list %}
-                <tr role="row" class="odd">
-                    <th class="bs-checkbox " style="width: 36px; " data-field="Checkbox"><div class="th-inner "><label></label><input name="formularios" type="checkbox" id="option{{object.id}}" value={{object.id}}><span></span></label></div><div class="fht-cell" style="width: 40px;"></div></th>
-                    <td data-field="Assunto" class="sorting_1" tabindex="1">{{object.Assunto}} </td>
-                    <td data-field="Pergunta">{{object.Pergunta}}</td>
-                    <td data-field="Pergunta">{{object.Resposta}}</td>
-                </tr>
-                {% endfor %}
-            
-            <tfoot>
-            <tr>
-                <th> Selecionar </th>
-                <th> Assunto </th>
-                <th> Pergunta </th>
-                <th> Resposta </th>
-            </tr>
-            </tfoot>
-            
-        
-        </table><!-- /.table -->
-        
-            
-        </div><!-- /.card-body -->
-    </div>
-    <div style="margin-left:2rem">
-        <button type="submit" class="btn btn-success" method="post" value="Click" name='Remove'>Remover</button>
-        <button type="submit" class="btn btn-success" method="post" value="Click" name='Criar'>Salvar</button>
-    </div>
-</form>
-{% endif %}
 {% endblock %}

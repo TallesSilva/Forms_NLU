@@ -1,8 +1,8 @@
 from django import forms
-from .models import ModeloFormulario
+from .models import ModelFormulario
 from django.forms import ModelForm, Textarea
 
-class Formulario(forms.ModelForm):
+class FormFormulario(forms.ModelForm):
     class Meta:
-        model= ModeloFormulario
+        model= ModelFormulario
         fields= ["Assunto", "Pergunta", "Resposta"]

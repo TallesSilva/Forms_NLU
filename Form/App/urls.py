@@ -9,6 +9,7 @@ urlpatterns = [
     path('Formulario/', views.Formulario, name='Formulario'),
     path('Lista/', views.Lista, name='Lista'),
     path('Ajuda/', views.Ajuda, name='Ajuda'),
+    path('ChatBot/', views.ChatBot, name='Chatbot'),
     path('Importar/', views.Importar, name='Importar'),
-    path('teste/', views.teste, name='teste'),
+    path('Teste/', views.Teste, name='Teste'),
 ]

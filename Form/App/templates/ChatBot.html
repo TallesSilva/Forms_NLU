@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+<link href="https://unpkg.com/bootstrap-table@1.15.5/dist/bootstrap-table.min.css" rel="stylesheet">
+
+<script src="https://unpkg.com/bootstrap-table@1.15.5/dist/bootstrap-table.min.js"></script>
+
+
+{% block content %}
+<h1> Chat </h1>
+<div id="webchat"/>
+<script src="https://storage.googleapis.com/mrbot-cdn/webchat-latest.js"></script>
+
+<script>
+  WebChat.default.init({
+    selector: "#webchat",
+    customData: {"language": "en"}, // arbitrary custom data. Stay minimal as this will be added to the socket
+    socketUrl: "http://localhost:5005",
+    socketPath: "/socket.io/",
+    docViewer: true,
+    storage: "session",
+    showMessageDate: true,
+    title: "Kyros Bot",
+    subtitle: "FAQ",
+  })
+</script>
+</main>
+
+{% endblock %}
